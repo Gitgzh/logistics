@@ -24,9 +24,9 @@ public class RootConfig {
 	public DataSource ds() {
 		DruidDataSource ds = new DruidDataSource();
 		ds.setDriverClassName("com.mysql.jdbc.Driver");
-		ds.setUrl("jdbc:mysql://192.168.9.205:3306/logistics?characterEncoding=utf8");
+		ds.setUrl("jdbc:mysql://localhost:3306/logistics?charactEncoding=utf8");
 		ds.setUsername("root");
-		ds.setPassword("123456");
+		ds.setPassword("root");
 		return ds;
 	}
 	

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.woniu.dao.CostMapper">
+  <resultMap id="BaseResultMap" type="com.woniu.pojo.Cost">
+    <id column="costid" jdbcType="INTEGER" property="costid" />
+    <result column="wages" jdbcType="DOUBLE" property="wages" />
+    <result column="operatename" jdbcType="DOUBLE" property="operatename" />
+    <result column="other" jdbcType="DOUBLE" property="other" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    costid, wages, operatename, other
+  </sql>
+  <select id="selectByExample" parameterType="com.woniu.pojo.CostExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from cost
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from cost
+    where costid = #{costid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from cost
+    where costid = #{costid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.woniu.pojo.CostExample">
+    delete from cost
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.woniu.pojo.Cost">
+    insert into cost (costid, wages, operatename, 
+      other)
+    values (#{costid,jdbcType=INTEGER}, #{wages,jdbcType=DOUBLE}, #{operatename,jdbcType=DOUBLE}, 
+      #{other,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.woniu.pojo.Cost">
+    insert into cost
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="costid != null">
+        costid,
+      </if>
+      <if test="wages != null">
+        wages,
+      </if>
+      <if test="operatename != null">
+        operatename,
+      </if>
+      <if test="other != null">
+        other,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="costid != null">
+        #{costid,jdbcType=INTEGER},
+      </if>
+      <if test="wages != null">
+        #{wages,jdbcType=DOUBLE},
+      </if>
+      <if test="operatename != null">
+        #{operatename,jdbcType=DOUBLE},
+      </if>
+      <if test="other != null">
+        #{other,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.woniu.pojo.CostExample" resultType="java.lang.Long">
+    select count(*) from cost
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update cost
+    <set>
+      <if test="record.costid != null">
+        costid = #{record.costid,jdbcType=INTEGER},
+      </if>
+      <if test="record.wages != null">
+        wages = #{record.wages,jdbcType=DOUBLE},
+      </if>
+      <if test="record.operatename != null">
+        operatename = #{record.operatename,jdbcType=DOUBLE},
+      </if>
+      <if test="record.other != null">
+        other = #{record.other,jdbcType=DOUBLE},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update cost
+    set costid = #{record.costid,jdbcType=INTEGER},
+      wages = #{record.wages,jdbcType=DOUBLE},
+      operatename = #{record.operatename,jdbcType=DOUBLE},
+      other = #{record.other,jdbcType=DOUBLE}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.woniu.pojo.Cost">
+    update cost
+    <set>
+      <if test="wages != null">
+        wages = #{wages,jdbcType=DOUBLE},
+      </if>
+      <if test="operatename != null">
+        operatename = #{operatename,jdbcType=DOUBLE},
+      </if>
+      <if test="other != null">
+        other = #{other,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where costid = #{costid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.woniu.pojo.Cost">
+    update cost
+    set wages = #{wages,jdbcType=DOUBLE},
+      operatename = #{operatename,jdbcType=DOUBLE},
+      other = #{other,jdbcType=DOUBLE}
+    where costid = #{costid,jdbcType=INTEGER}
+  </update>
+</mapper>

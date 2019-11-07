@@ -14,7 +14,7 @@
 		</commentGenerator>
 		<!--数据库连接的信息：驱动类、连接地址、用户名、密码,这里配置的是mysql的，当然也可以配置oracle等数据库  @@@@@ -->
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://localhost:3306/logistics?charactEncoding=utf8" userId="root"
+			connectionURL="jdbc:mysql://localhost:3306/db_myschool?charactEncoding=utf8" userId="root"
 			password="root">
 		</jdbcConnection>
 
@@ -45,18 +45,7 @@
 			<property name="enableSubPackages" value="false" />
 		</javaClientGenerator>
 		<!-- 指定数据库表 -->
-		<table tableName="cars"></table>
-		<table tableName="cost"></table>
-		<table tableName="drivers"></table>
-		<table tableName="fleets"></table>
-		<table tableName="logs"></table>
-		<table tableName="number"></table>
-		<table tableName="permissions"></table>
-		<table tableName="roles"></table>
-		<table tableName="roles_permissions"></table>
-		<table tableName="type"></table>
-		<table tableName="users"></table>
-		<table tableName="users_roles"></table>
-		<table tableName="waybill"></table>
+		<table tableName="dept"></table>
+		<table tableName="emp"></table>
 	</context>
 </generatorConfiguration>
