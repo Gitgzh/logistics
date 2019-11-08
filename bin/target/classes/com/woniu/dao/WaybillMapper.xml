@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.woniu.dao.WaybillMapper">
+  <resultMap id="BaseResultMap" type="com.woniu.pojo.Waybill">
+    <id column="wid" jdbcType="INTEGER" property="wid" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="goodsname" jdbcType="VARCHAR" property="goodsname" />
+    <result column="goodssize" jdbcType="DOUBLE" property="goodssize" />
+    <result column="goodsweight" jdbcType="DOUBLE" property="goodsweight" />
+    <result column="gettime" jdbcType="DATE" property="gettime" />
+    <result column="cid" jdbcType="INTEGER" property="cid" />
+    <result column="did" jdbcType="INTEGER" property="did" />
+    <result column="giveplace" jdbcType="VARCHAR" property="giveplace" />
+    <result column="givepeople" jdbcType="VARCHAR" property="givepeople" />
+    <result column="givetel" jdbcType="VARCHAR" property="givetel" />
+    <result column="tid" jdbcType="INTEGER" property="tid" />
+    <result column="costid" jdbcType="INTEGER" property="costid" />
+    <result column="wnum" jdbcType="VARCHAR" property="wnum" />
+    <result column="wstatus" jdbcType="INTEGER" property="wstatus" />
+    <result column="nid" jdbcType="INTEGER" property="nid" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    wid, uid, goodsname, goodssize, goodsweight, gettime, cid, did, giveplace, givepeople, 
+    givetel, tid, costid, wnum, wstatus, nid
+  </sql>
+  <select id="selectByExample" parameterType="com.woniu.pojo.WaybillExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from waybill
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from waybill
+    where wid = #{wid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from waybill
+    where wid = #{wid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.woniu.pojo.WaybillExample">
+    delete from waybill
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.woniu.pojo.Waybill">
+    insert into waybill (wid, uid, goodsname, 
+      goodssize, goodsweight, gettime, 
+      cid, did, giveplace, 
+      givepeople, givetel, tid, 
+      costid, wnum, wstatus, 
+      nid)
+    values (#{wid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{goodsname,jdbcType=VARCHAR}, 
+      #{goodssize,jdbcType=DOUBLE}, #{goodsweight,jdbcType=DOUBLE}, #{gettime,jdbcType=DATE}, 
+      #{cid,jdbcType=INTEGER}, #{did,jdbcType=INTEGER}, #{giveplace,jdbcType=VARCHAR}, 
+      #{givepeople,jdbcType=VARCHAR}, #{givetel,jdbcType=VARCHAR}, #{tid,jdbcType=INTEGER}, 
+      #{costid,jdbcType=INTEGER}, #{wnum,jdbcType=VARCHAR}, #{wstatus,jdbcType=INTEGER}, 
+      #{nid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.woniu.pojo.Waybill">
+    insert into waybill
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="wid != null">
+        wid,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="goodsname != null">
+        goodsname,
+      </if>
+      <if test="goodssize != null">
+        goodssize,
+      </if>
+      <if test="goodsweight != null">
+        goodsweight,
+      </if>
+      <if test="gettime != null">
+        gettime,
+      </if>
+      <if test="cid != null">
+        cid,
+      </if>
+      <if test="did != null">
+        did,
+      </if>
+      <if test="giveplace != null">
+        giveplace,
+      </if>
+      <if test="givepeople != null">
+        givepeople,
+      </if>
+      <if test="givetel != null">
+        givetel,
+      </if>
+      <if test="tid != null">
+        tid,
+      </if>
+      <if test="costid != null">
+        costid,
+      </if>
+      <if test="wnum != null">
+        wnum,
+      </if>
+      <if test="wstatus != null">
+        wstatus,
+      </if>
+      <if test="nid != null">
+        nid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="wid != null">
+        #{wid,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="goodsname != null">
+        #{goodsname,jdbcType=VARCHAR},
+      </if>
+      <if test="goodssize != null">
+        #{goodssize,jdbcType=DOUBLE},
+      </if>
+      <if test="goodsweight != null">
+        #{goodsweight,jdbcType=DOUBLE},
+      </if>
+      <if test="gettime != null">
+        #{gettime,jdbcType=DATE},
+      </if>
+      <if test="cid != null">
+        #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="did != null">
+        #{did,jdbcType=INTEGER},
+      </if>
+      <if test="giveplace != null">
+        #{giveplace,jdbcType=VARCHAR},
+      </if>
+      <if test="givepeople != null">
+        #{givepeople,jdbcType=VARCHAR},
+      </if>
+      <if test="givetel != null">
+        #{givetel,jdbcType=VARCHAR},
+      </if>
+      <if test="tid != null">
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="costid != null">
+        #{costid,jdbcType=INTEGER},
+      </if>
+      <if test="wnum != null">
+        #{wnum,jdbcType=VARCHAR},
+      </if>
+      <if test="wstatus != null">
+        #{wstatus,jdbcType=INTEGER},
+      </if>
+      <if test="nid != null">
+        #{nid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.woniu.pojo.WaybillExample" resultType="java.lang.Long">
+    select count(*) from waybill
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update waybill
+    <set>
+      <if test="record.wid != null">
+        wid = #{record.wid,jdbcType=INTEGER},
+      </if>
+      <if test="record.uid != null">
+        uid = #{record.uid,jdbcType=INTEGER},
+      </if>
+      <if test="record.goodsname != null">
+        goodsname = #{record.goodsname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodssize != null">
+        goodssize = #{record.goodssize,jdbcType=DOUBLE},
+      </if>
+      <if test="record.goodsweight != null">
+        goodsweight = #{record.goodsweight,jdbcType=DOUBLE},
+      </if>
+      <if test="record.gettime != null">
+        gettime = #{record.gettime,jdbcType=DATE},
+      </if>
+      <if test="record.cid != null">
+        cid = #{record.cid,jdbcType=INTEGER},
+      </if>
+      <if test="record.did != null">
+        did = #{record.did,jdbcType=INTEGER},
+      </if>
+      <if test="record.giveplace != null">
+        giveplace = #{record.giveplace,jdbcType=VARCHAR},
+      </if>
+      <if test="record.givepeople != null">
+        givepeople = #{record.givepeople,jdbcType=VARCHAR},
+      </if>
+      <if test="record.givetel != null">
+        givetel = #{record.givetel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tid != null">
+        tid = #{record.tid,jdbcType=INTEGER},
+      </if>
+      <if test="record.costid != null">
+        costid = #{record.costid,jdbcType=INTEGER},
+      </if>
+      <if test="record.wnum != null">
+        wnum = #{record.wnum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wstatus != null">
+        wstatus = #{record.wstatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.nid != null">
+        nid = #{record.nid,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update waybill
+    set wid = #{record.wid,jdbcType=INTEGER},
+      uid = #{record.uid,jdbcType=INTEGER},
+      goodsname = #{record.goodsname,jdbcType=VARCHAR},
+      goodssize = #{record.goodssize,jdbcType=DOUBLE},
+      goodsweight = #{record.goodsweight,jdbcType=DOUBLE},
+      gettime = #{record.gettime,jdbcType=DATE},
+      cid = #{record.cid,jdbcType=INTEGER},
+      did = #{record.did,jdbcType=INTEGER},
+      giveplace = #{record.giveplace,jdbcType=VARCHAR},
+      givepeople = #{record.givepeople,jdbcType=VARCHAR},
+      givetel = #{record.givetel,jdbcType=VARCHAR},
+      tid = #{record.tid,jdbcType=INTEGER},
+      costid = #{record.costid,jdbcType=INTEGER},
+      wnum = #{record.wnum,jdbcType=VARCHAR},
+      wstatus = #{record.wstatus,jdbcType=INTEGER},
+      nid = #{record.nid,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.woniu.pojo.Waybill">
+    update waybill
+    <set>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="goodsname != null">
+        goodsname = #{goodsname,jdbcType=VARCHAR},
+      </if>
+      <if test="goodssize != null">
+        goodssize = #{goodssize,jdbcType=DOUBLE},
+      </if>
+      <if test="goodsweight != null">
+        goodsweight = #{goodsweight,jdbcType=DOUBLE},
+      </if>
+      <if test="gettime != null">
+        gettime = #{gettime,jdbcType=DATE},
+      </if>
+      <if test="cid != null">
+        cid = #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="did != null">
+        did = #{did,jdbcType=INTEGER},
+      </if>
+      <if test="giveplace != null">
+        giveplace = #{giveplace,jdbcType=VARCHAR},
+      </if>
+      <if test="givepeople != null">
+        givepeople = #{givepeople,jdbcType=VARCHAR},
+      </if>
+      <if test="givetel != null">
+        givetel = #{givetel,jdbcType=VARCHAR},
+      </if>
+      <if test="tid != null">
+        tid = #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="costid != null">
+        costid = #{costid,jdbcType=INTEGER},
+      </if>
+      <if test="wnum != null">
+        wnum = #{wnum,jdbcType=VARCHAR},
+      </if>
+      <if test="wstatus != null">
+        wstatus = #{wstatus,jdbcType=INTEGER},
+      </if>
+      <if test="nid != null">
+        nid = #{nid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where wid = #{wid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.woniu.pojo.Waybill">
+    update waybill
+    set uid = #{uid,jdbcType=INTEGER},
+      goodsname = #{goodsname,jdbcType=VARCHAR},
+      goodssize = #{goodssize,jdbcType=DOUBLE},
+      goodsweight = #{goodsweight,jdbcType=DOUBLE},
+      gettime = #{gettime,jdbcType=DATE},
+      cid = #{cid,jdbcType=INTEGER},
+      did = #{did,jdbcType=INTEGER},
+      giveplace = #{giveplace,jdbcType=VARCHAR},
+      givepeople = #{givepeople,jdbcType=VARCHAR},
+      givetel = #{givetel,jdbcType=VARCHAR},
+      tid = #{tid,jdbcType=INTEGER},
+      costid = #{costid,jdbcType=INTEGER},
+      wnum = #{wnum,jdbcType=VARCHAR},
+      wstatus = #{wstatus,jdbcType=INTEGER},
+      nid = #{nid,jdbcType=INTEGER}
+    where wid = #{wid,jdbcType=INTEGER}
+  </update>
+</mapper>
