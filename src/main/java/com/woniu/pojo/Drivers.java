@@ -64,4 +64,6 @@ public class Drivers implements Serializable {
     public void setDstatus(Integer dstatus) {
         this.dstatus = dstatus;
     }
+    
+    
 }

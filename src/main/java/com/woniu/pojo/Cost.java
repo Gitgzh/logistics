@@ -44,4 +44,6 @@ public class Cost implements Serializable {
     public void setOther(Double other) {
         this.other = other;
     }
+    
+    
 }
