@@ -2,7 +2,7 @@ package com.woniu.pojo;
 
 import java.io.Serializable;
 
-public class Type implements Serializable {
+public class Types implements Serializable {
     private Integer tid;
 
     private String tname;

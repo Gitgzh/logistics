@@ -2,7 +2,7 @@ package com.woniu.pojo;
 
 import java.io.Serializable;
 
-public class Number implements Serializable {
+public class Numbers implements Serializable {
     private Integer nid;
 
     private Integer cid;
