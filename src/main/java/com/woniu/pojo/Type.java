@@ -7,6 +7,8 @@ public class Type implements Serializable {
 
     private String tname;
 
+    private Double tsize;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getTid() {
@@ -23,5 +25,13 @@ public class Type implements Serializable {
 
     public void setTname(String tname) {
         this.tname = tname == null ? null : tname.trim();
+    }
+
+    public Double getTsize() {
+        return tsize;
+    }
+
+    public void setTsize(Double tsize) {
+        this.tsize = tsize;
     }
 }

@@ -7,8 +7,6 @@ public class Fleets implements Serializable {
 
     private String fname;
 
-    private Double fsize;
-
     private Double fcapacity;
 
     private Integer fstatus;
@@ -29,14 +27,6 @@ public class Fleets implements Serializable {
 
     public void setFname(String fname) {
         this.fname = fname == null ? null : fname.trim();
-    }
-
-    public Double getFsize() {
-        return fsize;
-    }
-
-    public void setFsize(Double fsize) {
-        this.fsize = fsize;
     }
 
     public Double getFcapacity() {

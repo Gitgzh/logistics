@@ -234,66 +234,6 @@ public class FleetsExample {
             return (Criteria) this;
         }
 
-        public Criteria andFsizeIsNull() {
-            addCriterion("fsize is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andFsizeIsNotNull() {
-            addCriterion("fsize is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andFsizeEqualTo(Double value) {
-            addCriterion("fsize =", value, "fsize");
-            return (Criteria) this;
-        }
-
-        public Criteria andFsizeNotEqualTo(Double value) {
-            addCriterion("fsize <>", value, "fsize");
-            return (Criteria) this;
-        }
-
-        public Criteria andFsizeGreaterThan(Double value) {
-            addCriterion("fsize >", value, "fsize");
-            return (Criteria) this;
-        }
-
-        public Criteria andFsizeGreaterThanOrEqualTo(Double value) {
-            addCriterion("fsize >=", value, "fsize");
-            return (Criteria) this;
-        }
-
-        public Criteria andFsizeLessThan(Double value) {
-            addCriterion("fsize <", value, "fsize");
-            return (Criteria) this;
-        }
-
-        public Criteria andFsizeLessThanOrEqualTo(Double value) {
-            addCriterion("fsize <=", value, "fsize");
-            return (Criteria) this;
-        }
-
-        public Criteria andFsizeIn(List<Double> values) {
-            addCriterion("fsize in", values, "fsize");
-            return (Criteria) this;
-        }
-
-        public Criteria andFsizeNotIn(List<Double> values) {
-            addCriterion("fsize not in", values, "fsize");
-            return (Criteria) this;
-        }
-
-        public Criteria andFsizeBetween(Double value1, Double value2) {
-            addCriterion("fsize between", value1, value2, "fsize");
-            return (Criteria) this;
-        }
-
-        public Criteria andFsizeNotBetween(Double value1, Double value2) {
-            addCriterion("fsize not between", value1, value2, "fsize");
-            return (Criteria) this;
-        }
-
         public Criteria andFcapacityIsNull() {
             addCriterion("fcapacity is null");
             return (Criteria) this;
