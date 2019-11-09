@@ -3,14 +3,14 @@ package com.woniu.pojo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TypeExample {
+public class TypesExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public TypeExample() {
+    public TypesExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
