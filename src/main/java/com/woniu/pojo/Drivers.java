@@ -7,6 +7,8 @@ public class Drivers implements Serializable {
 
     private String dname;
 
+    private Integer dtel;
+
     private String dface;
 
     private Integer fid;
@@ -31,6 +33,14 @@ public class Drivers implements Serializable {
 
     public void setDname(String dname) {
         this.dname = dname == null ? null : dname.trim();
+    }
+
+    public Integer getDtel() {
+        return dtel;
+    }
+
+    public void setDtel(Integer dtel) {
+        this.dtel = dtel;
     }
 
     public String getDface() {
@@ -64,6 +74,4 @@ public class Drivers implements Serializable {
     public void setDstatus(Integer dstatus) {
         this.dstatus = dstatus;
     }
-    
-    
 }
