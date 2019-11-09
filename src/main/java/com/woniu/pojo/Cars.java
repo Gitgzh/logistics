@@ -74,4 +74,5 @@ public class Cars implements Serializable {
     public void setFid(Integer fid) {
         this.fid = fid;
     }
+    
 }

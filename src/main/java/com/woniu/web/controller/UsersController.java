@@ -7,6 +7,9 @@ import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -43,5 +46,34 @@ public class UsersController {
 		user.setUpwd(upwd);
 		user.setSalt(salt);
 		service.save(user);
+	}
+	
+	@PutMapping
+	@ResponseBody
+	public void update(@RequestBody Users user) {
+		
+		service.save(user);
+	}
+	
+	@DeleteMapping
+	@ResponseBody
+	public void delete(@RequestBody Integer uid) {
+		
+		service.delete(uid);
+		
+	}
+	
+	@GetMapping(value="/uid")
+	@ResponseBody
+	public void findOne(@RequestBody Integer uid) {
+		
+		service.findOne(uid);
+	}
+	
+	@GetMapping
+	@ResponseBody
+	public void findAll() {
+		
+		service.findAll();
 	}
 }
