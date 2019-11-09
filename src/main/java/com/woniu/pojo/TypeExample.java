@@ -233,6 +233,66 @@ public class TypeExample {
             addCriterion("tname not between", value1, value2, "tname");
             return (Criteria) this;
         }
+
+        public Criteria andTsizeIsNull() {
+            addCriterion("tsize is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTsizeIsNotNull() {
+            addCriterion("tsize is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTsizeEqualTo(Double value) {
+            addCriterion("tsize =", value, "tsize");
+            return (Criteria) this;
+        }
+
+        public Criteria andTsizeNotEqualTo(Double value) {
+            addCriterion("tsize <>", value, "tsize");
+            return (Criteria) this;
+        }
+
+        public Criteria andTsizeGreaterThan(Double value) {
+            addCriterion("tsize >", value, "tsize");
+            return (Criteria) this;
+        }
+
+        public Criteria andTsizeGreaterThanOrEqualTo(Double value) {
+            addCriterion("tsize >=", value, "tsize");
+            return (Criteria) this;
+        }
+
+        public Criteria andTsizeLessThan(Double value) {
+            addCriterion("tsize <", value, "tsize");
+            return (Criteria) this;
+        }
+
+        public Criteria andTsizeLessThanOrEqualTo(Double value) {
+            addCriterion("tsize <=", value, "tsize");
+            return (Criteria) this;
+        }
+
+        public Criteria andTsizeIn(List<Double> values) {
+            addCriterion("tsize in", values, "tsize");
+            return (Criteria) this;
+        }
+
+        public Criteria andTsizeNotIn(List<Double> values) {
+            addCriterion("tsize not in", values, "tsize");
+            return (Criteria) this;
+        }
+
+        public Criteria andTsizeBetween(Double value1, Double value2) {
+            addCriterion("tsize between", value1, value2, "tsize");
+            return (Criteria) this;
+        }
+
+        public Criteria andTsizeNotBetween(Double value1, Double value2) {
+            addCriterion("tsize not between", value1, value2, "tsize");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
