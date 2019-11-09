@@ -234,6 +234,66 @@ public class DriversExample {
             return (Criteria) this;
         }
 
+        public Criteria andDtelIsNull() {
+            addCriterion("dtel is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDtelIsNotNull() {
+            addCriterion("dtel is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDtelEqualTo(Integer value) {
+            addCriterion("dtel =", value, "dtel");
+            return (Criteria) this;
+        }
+
+        public Criteria andDtelNotEqualTo(Integer value) {
+            addCriterion("dtel <>", value, "dtel");
+            return (Criteria) this;
+        }
+
+        public Criteria andDtelGreaterThan(Integer value) {
+            addCriterion("dtel >", value, "dtel");
+            return (Criteria) this;
+        }
+
+        public Criteria andDtelGreaterThanOrEqualTo(Integer value) {
+            addCriterion("dtel >=", value, "dtel");
+            return (Criteria) this;
+        }
+
+        public Criteria andDtelLessThan(Integer value) {
+            addCriterion("dtel <", value, "dtel");
+            return (Criteria) this;
+        }
+
+        public Criteria andDtelLessThanOrEqualTo(Integer value) {
+            addCriterion("dtel <=", value, "dtel");
+            return (Criteria) this;
+        }
+
+        public Criteria andDtelIn(List<Integer> values) {
+            addCriterion("dtel in", values, "dtel");
+            return (Criteria) this;
+        }
+
+        public Criteria andDtelNotIn(List<Integer> values) {
+            addCriterion("dtel not in", values, "dtel");
+            return (Criteria) this;
+        }
+
+        public Criteria andDtelBetween(Integer value1, Integer value2) {
+            addCriterion("dtel between", value1, value2, "dtel");
+            return (Criteria) this;
+        }
+
+        public Criteria andDtelNotBetween(Integer value1, Integer value2) {
+            addCriterion("dtel not between", value1, value2, "dtel");
+            return (Criteria) this;
+        }
+
         public Criteria andDfaceIsNull() {
             addCriterion("dface is null");
             return (Criteria) this;
