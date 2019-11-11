@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.woniu.pojo.Fleets;
 import com.woniu.service.IFleetsService;
+import com.woniu.service.impl.FleetsServiceImpl;
 
 
 @Controller
@@ -30,7 +31,7 @@ import com.woniu.service.IFleetsService;
 public class FleetsController {
 
 	@Autowired
-	private IFleetsService service;
+	private FleetsServiceImpl service;
 	
 	@PostMapping
 	@ResponseBody

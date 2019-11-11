@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.woniu.pojo.Cars;
 import com.woniu.service.ICarsService;
+import com.woniu.service.impl.CarsServiceImpl;
 
 
 @Controller
@@ -30,7 +31,7 @@ import com.woniu.service.ICarsService;
 public class CarsController {
 
 	@Autowired
-	private ICarsService service;
+	private CarsServiceImpl service;
 	
 	@PostMapping
 	@ResponseBody

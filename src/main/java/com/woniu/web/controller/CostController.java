@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.woniu.pojo.Cost;
 import com.woniu.service.ICostService;
+import com.woniu.service.impl.CostServiceImpl;
 
 
 
@@ -31,7 +32,7 @@ import com.woniu.service.ICostService;
 public class CostController {
 
 	@Autowired
-	private ICostService service;
+	private CostServiceImpl service;
 	
 	@PostMapping
 	@ResponseBody

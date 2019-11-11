@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.woniu.pojo.Types;
 import com.woniu.service.ITypesService;
+import com.woniu.service.impl.TypesServiceImpl;
 
 
 @Controller
@@ -30,7 +31,7 @@ import com.woniu.service.ITypesService;
 public class TypesController {
 
 	@Autowired
-	private ITypesService service;
+	private TypesServiceImpl service;
 	
 	@PostMapping
 	@ResponseBody

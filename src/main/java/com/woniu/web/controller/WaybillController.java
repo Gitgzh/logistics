@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.woniu.pojo.Waybill;
 import com.woniu.service.IWaybillService;
+import com.woniu.service.impl.WaybillServiceImpl;
 
 
 @Controller
@@ -30,7 +31,7 @@ import com.woniu.service.IWaybillService;
 public class WaybillController {
 
 	@Autowired
-	private IWaybillService service;
+	private WaybillServiceImpl service;
 	
 	@PostMapping
 	@ResponseBody

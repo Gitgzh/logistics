@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.woniu.pojo.Permissions;
 import com.woniu.service.IPermissionsService;
+import com.woniu.service.impl.PermissionsServiceImpl;
 
 
 @Controller
@@ -30,7 +31,7 @@ import com.woniu.service.IPermissionsService;
 public class PermissionsController {
 
 	@Autowired
-	private IPermissionsService service;
+	private PermissionsServiceImpl service;
 	
 	@PostMapping
 	@ResponseBody
