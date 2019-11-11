@@ -43,7 +43,7 @@ public class CarsController {
 			//后缀
 			String OldName = photo[i].getOriginalFilename();
 			int lastDot = OldName.lastIndexOf(".");
-			String ext = OldName.substring(lastDot);
+			String ext = OldName.substring(lastDot); 
 			//文件名
 			String newName = UUID.randomUUID().toString().replace("-", "")+ext;
 			//上传路径
