@@ -16,12 +16,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.woniu.pojo.Users;
 import com.woniu.service.IUsersService;
+import com.woniu.service.impl.UsersServiceImpl;
 
 @Controller
 @RequestMapping("users")
 public class UsersController {
 	@Autowired
-	private IUsersService service;
+	private UsersServiceImpl service;
 	
 	@RequestMapping("/login")
 	@ResponseBody

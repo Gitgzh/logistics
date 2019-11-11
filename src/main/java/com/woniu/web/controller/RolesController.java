@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.woniu.pojo.Roles;
 import com.woniu.service.IRolesService;
+import com.woniu.service.impl.RolesServiceImpl;
 
 
 @Controller
@@ -30,7 +31,7 @@ import com.woniu.service.IRolesService;
 public class RolesController {
 
 	@Autowired
-	private IRolesService service;
+	private RolesServiceImpl service;
 	
 	@PostMapping
 	@ResponseBody

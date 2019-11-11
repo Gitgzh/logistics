@@ -19,40 +19,38 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.woniu.pojo.Cars;
 import com.woniu.service.ICarsService;
+import com.woniu.service.impl.CarsServiceImpl;
 
 
-@Controller
+@RestController
 @RequestMapping("cars")
 public class CarsController {
 
 	@Autowired
-	private ICarsService service;
+	private CarsServiceImpl service;
 	
 	@PostMapping
-	@ResponseBody
 	public void save(@RequestBody Cars car) {
 		service.save(car);
 	}
 	
 	@DeleteMapping
-	@ResponseBody
 	public void delete(Integer cid) {
 		service.delete(cid);
 	}
 	
 	@PutMapping
-	@ResponseBody
 	public void update(Cars car) {
 		service.update(car);
 	}
 	
 	
 	@GetMapping(value="/cid")
-	@ResponseBody
 	public Cars findOne(Integer cid) {
 		return service.findOne(cid);
 	}

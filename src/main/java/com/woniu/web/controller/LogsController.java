@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.woniu.pojo.Logs;
 import com.woniu.service.ILogsService;
+import com.woniu.service.impl.LogsServiceImpl;
 
 
 @Controller
@@ -30,7 +31,7 @@ import com.woniu.service.ILogsService;
 public class LogsController {
 
 	@Autowired
-	private ILogsService service;
+	private LogsServiceImpl service;
 	
 	@PostMapping
 	@ResponseBody

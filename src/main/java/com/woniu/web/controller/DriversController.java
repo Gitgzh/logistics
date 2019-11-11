@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.woniu.pojo.Drivers;
 import com.woniu.service.IDriversService;
+import com.woniu.service.impl.DriversServiceImpl;
 
 
 
@@ -33,7 +34,7 @@ import com.woniu.service.IDriversService;
 public class DriversController {
 
 	@Autowired
-	private IDriversService service;
+	private DriversServiceImpl service;
 	
 	@PostMapping
 	@ResponseBody

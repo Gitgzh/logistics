@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.woniu.pojo.Numbers;
 import com.woniu.service.INumbersService;
+import com.woniu.service.impl.NumbersServiceImpl;
 
 
 @Controller
@@ -30,7 +31,7 @@ import com.woniu.service.INumbersService;
 public class NumbersController {
 
 	@Autowired
-	private INumbersService service;
+	private NumbersServiceImpl service;
 	
 	@PostMapping
 	@ResponseBody
