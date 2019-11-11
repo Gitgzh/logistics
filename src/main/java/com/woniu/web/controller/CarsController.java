@@ -84,7 +84,7 @@ public class CarsController {
 	
 	@PutMapping
 	public void update(Cars car) {
-		
+		System.out.println("CarsController.update()");
 		service.update(car);
 	}
 	
