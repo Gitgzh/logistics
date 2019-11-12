@@ -1,5 +1,8 @@
 package com.woniu.web.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -29,13 +32,21 @@ public class UsersController {
 	public void login(String account,String upwd) {
 		Subject subject =SecurityUtils.getSubject();
 		UsernamePasswordToken token=new UsernamePasswordToken(account,upwd);
-		try {
+		
 			subject.login(token);
-			System.out.println("认证成功");
-		} catch (AuthenticationException e) {
-			System.out.println("认证失败");
-		}
+			
 	}
+	
+	@RequestMapping("/isLogin")
+	@ResponseBody
+	public Map<String,Object> isLogin() {
+		Subject subject =SecurityUtils.getSubject();
+		
+		Map<String,Object> map=new HashMap<>();
+		map.put("isLogin", subject.isAuthenticated());
+		return map;
+	}
+	
 	
 	@RequestMapping("/regist")
 	@ResponseBody
@@ -48,6 +59,14 @@ public class UsersController {
 		user.setSalt(salt);
 		service.save(user);
 	}
+	
+	@RequestMapping("/logout")
+	@ResponseBody
+	public void logout() {
+		Subject subject =SecurityUtils.getSubject();
+		subject.logout();
+	}
+	
 	
 	@PutMapping
 	@ResponseBody

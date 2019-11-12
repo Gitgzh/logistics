@@ -13,8 +13,8 @@ public class CROSConfig implements WebMvcConfigurer {
 			.allowedOrigins("*")
 			.allowedMethods("*")
 			.allowedHeaders("*")
-			.maxAge(120)
-			.allowCredentials(true);
+			.allowCredentials(true)
+			.maxAge(120);
 	}
 	
 }
