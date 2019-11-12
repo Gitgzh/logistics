@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.woniu.dao.NumberMapper">
-  <resultMap id="BaseResultMap" type="com.woniu.pojo.Number">
+<mapper namespace="com.woniu.dao.NumbersMapper">
+  <resultMap id="BaseResultMap" type="com.woniu.pojo.Numbers">
     <id column="nid" jdbcType="INTEGER" property="nid" />
     <result column="cid" jdbcType="INTEGER" property="cid" />
     <result column="did" jdbcType="INTEGER" property="did" />
@@ -67,7 +67,7 @@
   <sql id="Base_Column_List">
     nid, cid, did
   </sql>
-  <select id="selectByExample" parameterType="com.woniu.pojo.NumberExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.woniu.pojo.NumbersExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -91,19 +91,19 @@
     delete from number
     where nid = #{nid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.woniu.pojo.NumberExample">
+  <delete id="deleteByExample" parameterType="com.woniu.pojo.NumbersExample">
     delete from number
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.woniu.pojo.Number">
+  <insert id="insert" parameterType="com.woniu.pojo.Numbers">
     insert into number (nid, cid, did
       )
     values (#{nid,jdbcType=INTEGER}, #{cid,jdbcType=INTEGER}, #{did,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.woniu.pojo.Number">
+  <insert id="insertSelective" parameterType="com.woniu.pojo.Numbers">
     insert into number
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="nid != null">
@@ -128,7 +128,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.woniu.pojo.NumberExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.woniu.pojo.NumbersExample" resultType="java.lang.Long">
     select count(*) from number
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -160,7 +160,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.woniu.pojo.Number">
+  <update id="updateByPrimaryKeySelective" parameterType="com.woniu.pojo.Numbers">
     update number
     <set>
       <if test="cid != null">
@@ -172,7 +172,7 @@
     </set>
     where nid = #{nid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.woniu.pojo.Number">
+  <update id="updateByPrimaryKey" parameterType="com.woniu.pojo.Numbers">
     update number
     set cid = #{cid,jdbcType=INTEGER},
       did = #{did,jdbcType=INTEGER}
