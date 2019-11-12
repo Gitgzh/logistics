@@ -62,8 +62,6 @@ public class RootConfig {
 	public ShiroFilterFactoryBean shiroFilter() {
 		ShiroFilterFactoryBean sf = new ShiroFilterFactoryBean();
 		sf.setSecurityManager(securityManager());
-		sf.setLoginUrl("/index.jsp");
-		sf.setUnauthorizedUrl("/unauthorized.jsp");
 		Map<String, String> map = new HashMap<>();
 		sf.setFilterChainDefinitionMap(map);
 		return sf;

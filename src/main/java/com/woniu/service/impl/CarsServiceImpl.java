@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.woniu.dao.CarsMapper;
 import com.woniu.pojo.Cars;
+import com.woniu.pojo.CarsExample;
 import com.woniu.service.ICarsService;
 
 
@@ -49,5 +50,10 @@ public class CarsServiceImpl implements ICarsService {
 	public List<Cars> findAll() {
 		
 		return mapper.selectByExample(null);
+	}
+	@Override
+	public Cars find(CarsExample ce) {
+		// TODO Auto-generated method stub
+		return mapper.find(ce);
 	}
 }

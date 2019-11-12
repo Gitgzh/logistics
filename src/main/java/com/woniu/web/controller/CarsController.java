@@ -24,6 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.woniu.pojo.Cars;
+import com.woniu.pojo.CarsExample;
 import com.woniu.service.ICarsService;
 import com.woniu.service.impl.CarsServiceImpl;
 
@@ -101,6 +102,10 @@ public class CarsController {
 		
 	}
 	
+	//按条件查询   按车牌号码查询、按车辆类型查询、按车辆载重查询、按车辆使用状态查询、按车辆所属车队查询
 	
+	public Cars find(CarsExample ce) {
+		return service.find(ce);
+	}
 	
 }
