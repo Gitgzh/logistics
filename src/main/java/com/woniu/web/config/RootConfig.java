@@ -62,6 +62,7 @@ public class RootConfig {
 	public ShiroFilterFactoryBean shiroFilter() {
 		ShiroFilterFactoryBean sf = new ShiroFilterFactoryBean();
 		sf.setSecurityManager(securityManager());
+
 		Map<String, String> map=new HashMap<>();
 		map.put("/login", "anon");
 		map.put("/isLogin", "anon");
