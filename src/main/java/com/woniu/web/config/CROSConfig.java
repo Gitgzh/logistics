@@ -11,8 +11,10 @@ public class CROSConfig implements WebMvcConfigurer {
 	public void addCorsMappings(CorsRegistry registry) {
 		registry.addMapping("/**")
 			.allowedOrigins("*")
-			.allowedMethods("GET","PUT","DELETE","POST","OPTIONS")
-			.allowedHeaders("Content-Type","Accept");
+			.allowedMethods("*")
+			.allowedHeaders("*")
+			.allowCredentials(true)
+			.maxAge(120);
 	}
 	
 }
