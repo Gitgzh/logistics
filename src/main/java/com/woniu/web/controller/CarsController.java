@@ -91,6 +91,7 @@ public class CarsController {
 	
 	@GetMapping
 	public List<Cars> findAll(){
+		//查询
 		List<Cars> cars = service.findAll();
 		return cars;
 		
