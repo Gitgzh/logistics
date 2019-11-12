@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.woniu.pojo.Cost;
@@ -27,7 +28,7 @@ import com.woniu.service.impl.CostServiceImpl;
 
 
 
-@Controller
+@RestController
 @RequestMapping("cost")
 public class CostController {
 
@@ -35,26 +36,22 @@ public class CostController {
 	private CostServiceImpl service;
 	
 	@PostMapping
-	@ResponseBody
 	public void save(@RequestBody Cost cost) {
 		service.save(cost);
 	}
 	
 	@DeleteMapping
-	@ResponseBody
 	public void delete(Integer costid) {
 		service.delete(costid);
 	}
 	
 	@PutMapping
-	@ResponseBody
 	public void update(Cost cost) {
 		service.update(cost);
 	}
 	
 	
 	@GetMapping(value="/costid")
-	@ResponseBody
 	public Cost findOne(Integer costid) {
 		return service.findOne(costid);
 	}

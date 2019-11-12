@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.woniu.dao.TypeMapper">
-  <resultMap id="BaseResultMap" type="com.woniu.pojo.Type">
+<mapper namespace="com.woniu.dao.TypesMapper">
+  <resultMap id="BaseResultMap" type="com.woniu.pojo.Types">
     <id column="tid" jdbcType="INTEGER" property="tid" />
     <result column="tname" jdbcType="VARCHAR" property="tname" />
     <result column="tsize" jdbcType="DOUBLE" property="tsize" />
@@ -67,7 +67,7 @@
   <sql id="Base_Column_List">
     tid, tname, tsize
   </sql>
-  <select id="selectByExample" parameterType="com.woniu.pojo.TypeExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.woniu.pojo.TypesExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -91,19 +91,19 @@
     delete from type
     where tid = #{tid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.woniu.pojo.TypeExample">
+  <delete id="deleteByExample" parameterType="com.woniu.pojo.TypesExample">
     delete from type
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.woniu.pojo.Type">
+  <insert id="insert" parameterType="com.woniu.pojo.Types">
     insert into type (tid, tname, tsize
       )
     values (#{tid,jdbcType=INTEGER}, #{tname,jdbcType=VARCHAR}, #{tsize,jdbcType=DOUBLE}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.woniu.pojo.Type">
+  <insert id="insertSelective" parameterType="com.woniu.pojo.Types">
     insert into type
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="tid != null">
@@ -128,7 +128,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.woniu.pojo.TypeExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.woniu.pojo.TypesExample" resultType="java.lang.Long">
     select count(*) from type
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -160,7 +160,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.woniu.pojo.Type">
+  <update id="updateByPrimaryKeySelective" parameterType="com.woniu.pojo.Types">
     update type
     <set>
       <if test="tname != null">
@@ -172,7 +172,7 @@
     </set>
     where tid = #{tid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.woniu.pojo.Type">
+  <update id="updateByPrimaryKey" parameterType="com.woniu.pojo.Types">
     update type
     set tname = #{tname,jdbcType=VARCHAR},
       tsize = #{tsize,jdbcType=DOUBLE}

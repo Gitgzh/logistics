@@ -27,4 +27,6 @@ public interface CarsMapper {
     int updateByPrimaryKeySelective(Cars record);
 
     int updateByPrimaryKey(Cars record);
+    
+    Cars find(CarsExample ce);
 }
