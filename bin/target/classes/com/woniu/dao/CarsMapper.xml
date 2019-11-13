@@ -240,4 +240,100 @@
       fid = #{fid,jdbcType=INTEGER}
     where cid = #{cid,jdbcType=INTEGER}
   </update>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+<!--   
+	 按车牌号码查询
+	 、按车辆类型查询、
+	 按车辆载重查询
+	 、按车辆使用状态查询、
+	 按车辆所属车队查询   -->
+  <select id="find" parameterType="com.woniu.pojo.CarsExample" resultType="com.woniu.pojo.Cars"> 
+  	select * from cars
+  	<where>
+  		<if test="cnum!=null">
+  			and cnum=#{cnum}
+  		</if>
+  		<if test="tid!=null">
+  			and tid=#{tid}
+  		</if>
+  		<if test="ccapacity!=null">
+  			and ccapacity=#{ccapacity}
+  		</if>
+  		<if test="cstatus!=null">
+  			and cstatus=#{cstatus}
+  		</if>
+  		<if test="fid!=null">
+  			and fid=#{fid}
+  		</if>
+  	</where>
+  </select>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 </mapper>
