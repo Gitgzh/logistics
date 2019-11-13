@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.woniu.pojo.Type">
     <id column="tid" jdbcType="INTEGER" property="tid" />
     <result column="tname" jdbcType="VARCHAR" property="tname" />
+    <result column="tsize" jdbcType="DOUBLE" property="tsize" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -64,7 +65,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    tid, tname
+    tid, tname, tsize
   </sql>
   <select id="selectByExample" parameterType="com.woniu.pojo.TypeExample" resultMap="BaseResultMap">
     select
@@ -97,8 +98,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.woniu.pojo.Type">
-    insert into type (tid, tname)
-    values (#{tid,jdbcType=INTEGER}, #{tname,jdbcType=VARCHAR})
+    insert into type (tid, tname, tsize
+      )
+    values (#{tid,jdbcType=INTEGER}, #{tname,jdbcType=VARCHAR}, #{tsize,jdbcType=DOUBLE}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.woniu.pojo.Type">
     insert into type
@@ -109,6 +112,9 @@
       <if test="tname != null">
         tname,
       </if>
+      <if test="tsize != null">
+        tsize,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="tid != null">
@@ -116,6 +122,9 @@
       </if>
       <if test="tname != null">
         #{tname,jdbcType=VARCHAR},
+      </if>
+      <if test="tsize != null">
+        #{tsize,jdbcType=DOUBLE},
       </if>
     </trim>
   </insert>
@@ -134,6 +143,9 @@
       <if test="record.tname != null">
         tname = #{record.tname,jdbcType=VARCHAR},
       </if>
+      <if test="record.tsize != null">
+        tsize = #{record.tsize,jdbcType=DOUBLE},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -142,7 +154,8 @@
   <update id="updateByExample" parameterType="map">
     update type
     set tid = #{record.tid,jdbcType=INTEGER},
-      tname = #{record.tname,jdbcType=VARCHAR}
+      tname = #{record.tname,jdbcType=VARCHAR},
+      tsize = #{record.tsize,jdbcType=DOUBLE}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -153,12 +166,16 @@
       <if test="tname != null">
         tname = #{tname,jdbcType=VARCHAR},
       </if>
+      <if test="tsize != null">
+        tsize = #{tsize,jdbcType=DOUBLE},
+      </if>
     </set>
     where tid = #{tid,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.woniu.pojo.Type">
     update type
-    set tname = #{tname,jdbcType=VARCHAR}
+    set tname = #{tname,jdbcType=VARCHAR},
+      tsize = #{tsize,jdbcType=DOUBLE}
     where tid = #{tid,jdbcType=INTEGER}
   </update>
 </mapper>

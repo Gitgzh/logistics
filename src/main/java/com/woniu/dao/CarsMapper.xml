@@ -270,13 +270,13 @@
   
   
   
-  
-	 <!-- 按车牌号码查询
+<!--   
+	 按车牌号码查询
 	 、按车辆类型查询、
 	 按车辆载重查询
 	 、按车辆使用状态查询、
-	 按车辆所属车队查询 -->
-  <select id="find" parameterType="CarsExample" resultType="Cars">
+	 按车辆所属车队查询   -->
+  <select id="find" parameterType="com.woniu.pojo.CarsExample" resultType="com.woniu.pojo.Cars">
   	select * from cars
   	<where>
   		<if test="cnum!=null">
@@ -296,7 +296,7 @@
   		</if>
   	</where>
   </select>
-  
+
   
   
   

@@ -4,7 +4,6 @@
   <resultMap id="BaseResultMap" type="com.woniu.pojo.Fleets">
     <id column="fid" jdbcType="INTEGER" property="fid" />
     <result column="fname" jdbcType="VARCHAR" property="fname" />
-    <result column="fsize" jdbcType="DOUBLE" property="fsize" />
     <result column="fcapacity" jdbcType="DOUBLE" property="fcapacity" />
     <result column="fstatus" jdbcType="INTEGER" property="fstatus" />
   </resultMap>
@@ -67,7 +66,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    fid, fname, fsize, fcapacity, fstatus
+    fid, fname, fcapacity, fstatus
   </sql>
   <select id="selectByExample" parameterType="com.woniu.pojo.FleetsExample" resultMap="BaseResultMap">
     select
@@ -100,10 +99,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.woniu.pojo.Fleets">
-    insert into fleets (fid, fname, fsize, 
-      fcapacity, fstatus)
-    values (#{fid,jdbcType=INTEGER}, #{fname,jdbcType=VARCHAR}, #{fsize,jdbcType=DOUBLE}, 
-      #{fcapacity,jdbcType=DOUBLE}, #{fstatus,jdbcType=INTEGER})
+    insert into fleets (fid, fname, fcapacity, 
+      fstatus)
+    values (#{fid,jdbcType=INTEGER}, #{fname,jdbcType=VARCHAR}, #{fcapacity,jdbcType=DOUBLE}, 
+      #{fstatus,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.woniu.pojo.Fleets">
     insert into fleets
@@ -113,9 +112,6 @@
       </if>
       <if test="fname != null">
         fname,
-      </if>
-      <if test="fsize != null">
-        fsize,
       </if>
       <if test="fcapacity != null">
         fcapacity,
@@ -130,9 +126,6 @@
       </if>
       <if test="fname != null">
         #{fname,jdbcType=VARCHAR},
-      </if>
-      <if test="fsize != null">
-        #{fsize,jdbcType=DOUBLE},
       </if>
       <if test="fcapacity != null">
         #{fcapacity,jdbcType=DOUBLE},
@@ -157,9 +150,6 @@
       <if test="record.fname != null">
         fname = #{record.fname,jdbcType=VARCHAR},
       </if>
-      <if test="record.fsize != null">
-        fsize = #{record.fsize,jdbcType=DOUBLE},
-      </if>
       <if test="record.fcapacity != null">
         fcapacity = #{record.fcapacity,jdbcType=DOUBLE},
       </if>
@@ -175,7 +165,6 @@
     update fleets
     set fid = #{record.fid,jdbcType=INTEGER},
       fname = #{record.fname,jdbcType=VARCHAR},
-      fsize = #{record.fsize,jdbcType=DOUBLE},
       fcapacity = #{record.fcapacity,jdbcType=DOUBLE},
       fstatus = #{record.fstatus,jdbcType=INTEGER}
     <if test="_parameter != null">
@@ -187,9 +176,6 @@
     <set>
       <if test="fname != null">
         fname = #{fname,jdbcType=VARCHAR},
-      </if>
-      <if test="fsize != null">
-        fsize = #{fsize,jdbcType=DOUBLE},
       </if>
       <if test="fcapacity != null">
         fcapacity = #{fcapacity,jdbcType=DOUBLE},
@@ -203,7 +189,6 @@
   <update id="updateByPrimaryKey" parameterType="com.woniu.pojo.Fleets">
     update fleets
     set fname = #{fname,jdbcType=VARCHAR},
-      fsize = #{fsize,jdbcType=DOUBLE},
       fcapacity = #{fcapacity,jdbcType=DOUBLE},
       fstatus = #{fstatus,jdbcType=INTEGER}
     where fid = #{fid,jdbcType=INTEGER}

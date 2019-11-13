@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.woniu.pojo.Drivers">
     <id column="did" jdbcType="INTEGER" property="did" />
     <result column="dname" jdbcType="VARCHAR" property="dname" />
+    <result column="dtel" jdbcType="INTEGER" property="dtel" />
     <result column="dface" jdbcType="VARCHAR" property="dface" />
     <result column="fid" jdbcType="INTEGER" property="fid" />
     <result column="dphoto" jdbcType="VARCHAR" property="dphoto" />
@@ -68,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    did, dname, dface, fid, dphoto, dstatus
+    did, dname, dtel, dface, fid, dphoto, dstatus
   </sql>
   <select id="selectByExample" parameterType="com.woniu.pojo.DriversExample" resultMap="BaseResultMap">
     select
@@ -101,12 +102,12 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.woniu.pojo.Drivers">
-    insert into drivers (did, dname, dface, 
-      fid, dphoto, dstatus
-      )
-    values (#{did,jdbcType=INTEGER}, #{dname,jdbcType=VARCHAR}, #{dface,jdbcType=VARCHAR}, 
-      #{fid,jdbcType=INTEGER}, #{dphoto,jdbcType=VARCHAR}, #{dstatus,jdbcType=INTEGER}
-      )
+    insert into drivers (did, dname, dtel, 
+      dface, fid, dphoto, 
+      dstatus)
+    values (#{did,jdbcType=INTEGER}, #{dname,jdbcType=VARCHAR}, #{dtel,jdbcType=INTEGER}, 
+      #{dface,jdbcType=VARCHAR}, #{fid,jdbcType=INTEGER}, #{dphoto,jdbcType=VARCHAR}, 
+      #{dstatus,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.woniu.pojo.Drivers">
     insert into drivers
@@ -116,6 +117,9 @@
       </if>
       <if test="dname != null">
         dname,
+      </if>
+      <if test="dtel != null">
+        dtel,
       </if>
       <if test="dface != null">
         dface,
@@ -136,6 +140,9 @@
       </if>
       <if test="dname != null">
         #{dname,jdbcType=VARCHAR},
+      </if>
+      <if test="dtel != null">
+        #{dtel,jdbcType=INTEGER},
       </if>
       <if test="dface != null">
         #{dface,jdbcType=VARCHAR},
@@ -166,6 +173,9 @@
       <if test="record.dname != null">
         dname = #{record.dname,jdbcType=VARCHAR},
       </if>
+      <if test="record.dtel != null">
+        dtel = #{record.dtel,jdbcType=INTEGER},
+      </if>
       <if test="record.dface != null">
         dface = #{record.dface,jdbcType=VARCHAR},
       </if>
@@ -187,6 +197,7 @@
     update drivers
     set did = #{record.did,jdbcType=INTEGER},
       dname = #{record.dname,jdbcType=VARCHAR},
+      dtel = #{record.dtel,jdbcType=INTEGER},
       dface = #{record.dface,jdbcType=VARCHAR},
       fid = #{record.fid,jdbcType=INTEGER},
       dphoto = #{record.dphoto,jdbcType=VARCHAR},
@@ -200,6 +211,9 @@
     <set>
       <if test="dname != null">
         dname = #{dname,jdbcType=VARCHAR},
+      </if>
+      <if test="dtel != null">
+        dtel = #{dtel,jdbcType=INTEGER},
       </if>
       <if test="dface != null">
         dface = #{dface,jdbcType=VARCHAR},
@@ -219,6 +233,7 @@
   <update id="updateByPrimaryKey" parameterType="com.woniu.pojo.Drivers">
     update drivers
     set dname = #{dname,jdbcType=VARCHAR},
+      dtel = #{dtel,jdbcType=INTEGER},
       dface = #{dface,jdbcType=VARCHAR},
       fid = #{fid,jdbcType=INTEGER},
       dphoto = #{dphoto,jdbcType=VARCHAR},
