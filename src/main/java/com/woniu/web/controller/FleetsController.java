@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.woniu.pojo.Fleets;
+import com.woniu.pojo.FleetsExample;
 import com.woniu.service.IFleetsService;
 import com.woniu.service.impl.FleetsServiceImpl;
 
@@ -65,6 +66,8 @@ public class FleetsController {
 		
 	}
 	
-	
+	public Fleets find(FleetsExample fe) {
+		return service.find(fe);
+	}
 	
 }

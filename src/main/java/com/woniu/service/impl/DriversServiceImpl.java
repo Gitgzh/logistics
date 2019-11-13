@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.woniu.dao.DriversMapper;
 import com.woniu.pojo.Drivers;
+import com.woniu.pojo.DriversExample;
 import com.woniu.service.IDriversService;
 
 
@@ -49,5 +50,10 @@ public class DriversServiceImpl implements IDriversService {
 	public List<Drivers> findAll() {
 		
 		return mapper.selectByExample(null);
+	}
+	@Override
+	public Drivers find(DriversExample de) {
+		// TODO Auto-generated method stub
+		return mapper.find(de);
 	}
 }

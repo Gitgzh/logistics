@@ -27,4 +27,8 @@ public interface FleetsMapper {
     int updateByPrimaryKeySelective(Fleets record);
 
     int updateByPrimaryKey(Fleets record);
+    
+    
+    
+    Fleets find(FleetsExample fe);
 }

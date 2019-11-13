@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.woniu.pojo.Drivers;
+import com.woniu.pojo.DriversExample;
 import com.woniu.service.impl.DriversServiceImpl;
 
 
@@ -100,6 +101,8 @@ public class DriversController {
 		
 	}
 	
-	
+	public Drivers find(DriversExample de) {
+		return service.find(de);
+	}
 	
 }

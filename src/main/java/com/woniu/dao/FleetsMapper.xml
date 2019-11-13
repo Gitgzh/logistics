@@ -193,4 +193,36 @@
       fstatus = #{fstatus,jdbcType=INTEGER}
     where fid = #{fid,jdbcType=INTEGER}
   </update>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <select id="find" parameterType="com.woniu.pojo.FleetsExample" resultType="com.woniu.pojo.Fleets">
+  	select * from fleets
+  	<where>
+  		<if test="fid!=null">
+  			and fid=#{fid}
+  		</if>
+  		<if test="fname!=null">
+  			and fname=#{fname}
+  		</if>
+  		<if test="fsize!=null">
+  			and fsize=#{fsize}
+  		</if>
+  		<if test="fcapacity!=null">
+  			and fcapacity=#{fcapacity}
+  		</if>
+  		<if test="fstatus!=null">
+  			and fstatus=#{fstatus}
+  		</if>
+  	</where>
+  </select>
+  
+  
+  
 </mapper>

@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.woniu.dao.FleetsMapper;
 import com.woniu.pojo.Fleets;
+import com.woniu.pojo.FleetsExample;
 import com.woniu.service.IFleetsService;
 
 
@@ -49,5 +50,10 @@ public class FleetsServiceImpl implements IFleetsService {
 	public List<Fleets> findAll() {
 		
 		return mapper.selectByExample(null);
+	}
+	@Override
+	public Fleets find(FleetsExample fe) {
+		// TODO Auto-generated method stub
+		return mapper.find(fe);
 	}
 }

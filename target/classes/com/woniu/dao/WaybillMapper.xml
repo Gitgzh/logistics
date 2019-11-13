@@ -382,4 +382,9 @@
       nid = #{nid,jdbcType=INTEGER}
     where wid = #{wid,jdbcType=INTEGER}
   </update>
+  
+  
+  
+  
+ 
 </mapper>
