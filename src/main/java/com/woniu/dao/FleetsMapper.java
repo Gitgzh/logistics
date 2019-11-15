@@ -1,5 +1,6 @@
 package com.woniu.dao;
 
+import com.woniu.pojo.Cars;
 import com.woniu.pojo.Fleets;
 import com.woniu.pojo.FleetsExample;
 import java.util.List;
@@ -30,5 +31,8 @@ public interface FleetsMapper {
     
     
     
-    Fleets find(FleetsExample fe);
+    List<Fleets> find(FleetsExample fe);
+    List<Cars> findByIdWithCars(Integer fid);
+    
+    List findByFlF(String fname);
 }

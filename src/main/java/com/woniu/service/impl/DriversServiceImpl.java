@@ -52,7 +52,7 @@ public class DriversServiceImpl implements IDriversService {
 		return mapper.selectByExample(null);
 	}
 	@Override
-	public Drivers find(DriversExample de) {
+	public List<Drivers> find(DriversExample de) {
 		// TODO Auto-generated method stub
 		return mapper.find(de);
 	}

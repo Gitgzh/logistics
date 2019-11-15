@@ -101,7 +101,8 @@ public class DriversController {
 		
 	}
 	
-	public Drivers find(DriversExample de) {
+	//条件查询
+	public List<Drivers> find(DriversExample de) {
 		return service.find(de);
 	}
 	

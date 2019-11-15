@@ -12,5 +12,5 @@ public interface IDriversService {
 	void delete(Integer did);
 	Drivers findOne(Integer did);
 	List<Drivers> findAll();
-	Drivers find(DriversExample de);
+	List<Drivers> find(DriversExample de);
 }

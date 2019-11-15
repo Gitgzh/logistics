@@ -1,6 +1,7 @@
 package com.woniu.pojo;
 
 import java.io.Serializable;
+import java.util.Set;
 
 public class Cars implements Serializable {
     private Integer cid;
@@ -16,10 +17,20 @@ public class Cars implements Serializable {
     private Double ccapacity;
 
     private Integer fid;
+    
+    private Set<Fleets> fleets;
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getCid() {
+    public Set<Fleets> getFleets() {
+		return fleets;
+	}
+
+	public void setFleets(Set<Fleets> fleets) {
+		this.fleets = fleets;
+	}
+
+	public Integer getCid() {
         return cid;
     }
 

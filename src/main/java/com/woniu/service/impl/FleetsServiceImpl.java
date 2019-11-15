@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.woniu.dao.FleetsMapper;
+import com.woniu.pojo.Cars;
 import com.woniu.pojo.Fleets;
 import com.woniu.pojo.FleetsExample;
 import com.woniu.service.IFleetsService;
@@ -52,8 +53,19 @@ public class FleetsServiceImpl implements IFleetsService {
 		return mapper.selectByExample(null);
 	}
 	@Override
-	public Fleets find(FleetsExample fe) {
+	public List<Fleets> find(FleetsExample fe) {
 		// TODO Auto-generated method stub
 		return mapper.find(fe);
 	}
+	@Override
+	public List<Cars> findByIdWithCars(Integer fid) {
+		// TODO Auto-generated method stub
+		return mapper.findByIdWithCars(fid);
+	}
+	@Override
+	public List findByFlF(String fname) {
+		// TODO Auto-generated method stub
+		return mapper.findByFlF(fname);
+	}
+
 }

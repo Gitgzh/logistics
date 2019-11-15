@@ -10,8 +10,18 @@ public class Fleets implements Serializable {
     private Double fcapacity;
 
     private Integer fstatus;
+    
+    private Cars cars;
 
-    private static final long serialVersionUID = 1L;
+    public Cars getCars() {
+		return cars;
+	}
+
+	public void setCars(Cars cars) {
+		this.cars = cars;
+	}
+
+	private static final long serialVersionUID = 1L;
 
     public Integer getFid() {
         return fid;

@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.woniu.pojo.Cars;
 import com.woniu.pojo.Fleets;
 import com.woniu.pojo.FleetsExample;
 import com.woniu.service.IFleetsService;
@@ -65,9 +66,20 @@ public class FleetsController {
 		return fleets;
 		
 	}
-	
-	public Fleets find(FleetsExample fe) {
+	//条件查询
+	public List<Fleets> find(FleetsExample fe) {
 		return service.find(fe);
 	}
+	
+	//通过fid查询车辆信息
+	public List<Cars> findByIdWithCars(Integer fid){
+		return service.findByIdWithCars(fid);
+	}
+	
+	//通过fname查询车辆信息
+	public List findByFlF(String fname) {
+		return service.findByFlF(fname);
+	}
+	
 	
 }

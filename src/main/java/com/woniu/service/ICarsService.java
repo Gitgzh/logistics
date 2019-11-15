@@ -13,5 +13,5 @@ public interface ICarsService {
 	void delete(Integer cid);
 	Cars findOne(Integer cid);
 	List<Cars> findAll();
-	Cars find(CarsExample ce);
+	List<Cars> find(CarsExample ce);
 }

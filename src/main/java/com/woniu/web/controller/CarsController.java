@@ -98,7 +98,7 @@ public class CarsController {
 	
 	//按条件查询   按车牌号码查询、按车辆类型查询、按车辆载重查询、按车辆使用状态查询、按车辆所属车队查询
 	
-	public Cars find(CarsExample ce) {
+	public List<Cars> find(CarsExample ce) {
 		System.out.println("CarsController.find()");
 		return service.find(ce);
 	}

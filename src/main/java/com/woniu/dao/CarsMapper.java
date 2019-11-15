@@ -28,5 +28,7 @@ public interface CarsMapper {
 
     int updateByPrimaryKey(Cars record);
     
-    Cars find(CarsExample ce);
+    List<Cars> find(CarsExample ce);
+    
+    List findByFid();
 }

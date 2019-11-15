@@ -52,7 +52,7 @@ public class CarsServiceImpl implements ICarsService {
 		return mapper.selectByExample(null);
 	}
 	@Override
-	public Cars find(CarsExample ce) {
+	public List<Cars> find(CarsExample ce) {
 		// TODO Auto-generated method stub
 		return mapper.find(ce);
 	}
