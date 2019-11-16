@@ -1,4 +1,4 @@
-package com.woniu.web.config;
+package com.woniu.config;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,7 +26,7 @@ public class RootConfig {
 		ds.setDriverClassName("com.mysql.jdbc.Driver");
 		ds.setUrl("jdbc:mysql://localhost:3306/logistics?charactEncoding=utf8");
 		ds.setUsername("root");
-		ds.setPassword("root");
+		ds.setPassword("123456");
 		return ds;
 	}
 	
@@ -65,7 +65,7 @@ public class RootConfig {
 
 		Map<String, String> map=new HashMap<>();
 		map.put("/login", "anon");
-		map.put("/isLogin", "anon");
+//		map.put("/isLogin", "anon");
 		map.put("/logout", "logout");
 		map.put("/**", "authc");
 		sf.setFilterChainDefinitionMap(map);
@@ -95,9 +95,6 @@ public class RootConfig {
         return authorizationAttributeSourceAdvisor;
     }
     
-    @Bean
-    public CommonsMultipartResolver multiparResolver() {
-    	return new CommonsMultipartResolver();
-    }
+    
     
 }

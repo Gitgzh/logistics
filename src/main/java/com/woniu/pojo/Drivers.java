@@ -7,7 +7,7 @@ public class Drivers implements Serializable {
 
     private String dname;
 
-    private Integer dtel;
+    private String dtel;
 
     private String dface;
 
@@ -35,11 +35,11 @@ public class Drivers implements Serializable {
         this.dname = dname == null ? null : dname.trim();
     }
 
-    public Integer getDtel() {
+    public String getDtel() {
         return dtel;
     }
 
-    public void setDtel(Integer dtel) {
+    public void setDtel(String dtel) {
         this.dtel = dtel;
     }
 

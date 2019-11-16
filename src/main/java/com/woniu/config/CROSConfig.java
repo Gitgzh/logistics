@@ -1,4 +1,4 @@
-package com.woniu.web.config;
+package com.woniu.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -10,7 +10,7 @@ public class CROSConfig implements WebMvcConfigurer {
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
 		registry.addMapping("/**")
-			.allowedOrigins("*")
+			.allowedOrigins("http://localhost:8080")
 			.allowedMethods("*")
 			.allowedHeaders("*")
 			.allowCredentials(true)

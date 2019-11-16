@@ -37,15 +37,15 @@ public class UsersController {
 			
 	}
 	
-	@RequestMapping("/isLogin")
-	@ResponseBody
-	public Map<String,Object> isLogin() {
-		Subject subject =SecurityUtils.getSubject();
-		
-		Map<String,Object> map=new HashMap<String,Object>();
-		map.put("isLogin", subject.isAuthenticated());
-		return map;
-	}
+//	@RequestMapping("/isLogin")
+//	@ResponseBody
+//	public Map<String,Object> isLogin() {
+//		Subject subject =SecurityUtils.getSubject();
+//		
+//		Map<String,Object> map=new HashMap<String,Object>();
+//		map.put("isLogin", subject.isAuthenticated());
+//		return map;
+//	}
 	
 	
 	@RequestMapping("/regist")

@@ -32,7 +32,7 @@ public class CarsController {
 	
 	//多个图片
 	@PostMapping
-	public void save(Cars car,@RequestParam CommonsMultipartFile[] photo,HttpServletRequest req) { 
+	public void save(Cars car,@RequestParam(required=false) CommonsMultipartFile[] photo,HttpServletRequest req) { 
 		StringBuilder s = new StringBuilder();
 		for(int i=0;i<photo.length;i++) {
 			//后缀

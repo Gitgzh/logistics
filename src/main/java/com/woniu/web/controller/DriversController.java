@@ -48,7 +48,11 @@ public class DriversController {
 			String newName = UUID.randomUUID().toString().replace("-", "")+ext;
 			//上传路径
 			String path = req.getServletContext().getRealPath("/images");
-			
+			System.out.println(path);
+			File dir = new File(path);
+			if(!dir.exists()){
+				dir.mkdirs();
+			}
 			try {
 				photo[i].transferTo(new File(path,newName));
 				

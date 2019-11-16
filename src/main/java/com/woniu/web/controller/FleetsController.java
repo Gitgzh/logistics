@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -39,9 +40,9 @@ public class FleetsController {
 		service.save(fleets);
 	}
 	
-	@DeleteMapping
+	@DeleteMapping("{fid}")
 	@ResponseBody
-	public void delete(Integer fid) {
+	public void delete(@PathVariable Integer fid) {
 		service.delete(fid);
 	}
 	
@@ -59,6 +60,7 @@ public class FleetsController {
 	}
 	
 	@GetMapping
+	@ResponseBody
 	public List<Fleets> findAll(){
 		List<Fleets> fleets = service.findAll();
 		return fleets;
