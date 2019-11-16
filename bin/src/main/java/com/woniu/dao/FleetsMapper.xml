@@ -193,4 +193,74 @@
       fstatus = #{fstatus,jdbcType=INTEGER}
     where fid = #{fid,jdbcType=INTEGER}
   </update>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <select id="find" parameterType="com.woniu.pojo.FleetsExample" resultType="java.util.Map">
+  	select * from fleets
+  	<where>
+  		<if test="fid!=null">
+  			and fid=#{fid}
+  		</if>
+  		<if test="fname!=null">
+  			and fname=#{fname}
+  		</if>
+  		<if test="fsize!=null">
+  			and fsize=#{fsize}
+  		</if>
+  		<if test="fcapacity!=null">
+  			and fcapacity=#{fcapacity}
+  		</if>
+  		<if test="fstatus!=null">
+  			and fstatus=#{fstatus}
+  		</if>
+  	</where>
+  </select>
+  
+  
+  <select id="findByIdWithCars" parameterType="int" resultMap="rm">
+  	SELECT * FROM fleets f, cars c
+  	 WHERE f.`fid`=c.`fid` 
+  	 and f.fid=#{fid}
+  </select>
+  <resultMap type="com.woniu.pojo.Fleets" id="rm">
+  	<id property="fid" column="fid"></id>
+  	<result property="fname" column="fname"/>
+  	<result property="fsize" column="fsize"/>
+  	<result property="fcapacity" column="fcapacity"/>
+  	<result property="fstatus" column="fstatus"/>
+  	<collection property="cars" ofType="com.woniu.pojo.Cars">
+  		<id property="cid" column="fid"></id>
+  		<result property="cnum" column="cnum"/>
+  		<result property="tid" column="tid"/>
+  		<result property="cphoto" column="cphoto"/>
+  		<result property="cstatus" column="cstatus"/>		
+  		<result property="ccapacity" column="ccapacity"/>		
+  	</collection>
+  </resultMap>
+  
+  
+  
+  
+  <resultMap type="com.woniu.pojo.Fleets" id="findFleetsFid">
+  	<id column="fid" jdbcType="INTEGER" property="fid" />
+    <result column="fname" jdbcType="VARCHAR" property="fname" />
+    <result column="fcapacity" jdbcType="DOUBLE" property="fcapacity" />
+    <result column="fstatus" jdbcType="INTEGER" property="fstatus" />
+  	<result property="fsize" column="DOUBLE"/>
+  	<collection property="cars" column="fid" select="com.woniu.dao.CarsMapper"></collection>
+  </resultMap>
+  
+  
+  <select id="findByFlF" parameterType="java.lang.String" resultMap="findFleetsFid">
+  	select * from fleets where fname=#{fname}
+  </select>
+  
+  
 </mapper>
