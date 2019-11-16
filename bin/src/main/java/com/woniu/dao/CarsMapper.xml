@@ -301,11 +301,11 @@
   
   
   
-  
+<!--   
   
   <select id="findByFid" resultMap="findFleetsFid">
   	select * from cars where fid=#{fid}
-  </select>
+  </select> -->
   
   
   

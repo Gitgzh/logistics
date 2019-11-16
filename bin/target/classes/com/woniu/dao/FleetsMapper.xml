@@ -247,7 +247,7 @@
   
   
   
-  
+  <!-- 
   <resultMap type="com.woniu.pojo.Fleets" id="findFleetsFid">
   	<id column="fid" jdbcType="INTEGER" property="fid" />
     <result column="fname" jdbcType="VARCHAR" property="fname" />
@@ -260,7 +260,7 @@
   
   <select id="findByFlF" parameterType="java.lang.String" resultMap="findFleetsFid">
   	select * from fleets where fname=#{fname}
-  </select>
+  </select> -->
   
   
 </mapper>
