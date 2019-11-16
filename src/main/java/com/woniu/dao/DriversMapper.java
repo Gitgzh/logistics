@@ -27,4 +27,6 @@ public interface DriversMapper {
     int updateByPrimaryKeySelective(Drivers record);
 
     int updateByPrimaryKey(Drivers record);
+    
+    List<Drivers> find(DriversExample de);
 }

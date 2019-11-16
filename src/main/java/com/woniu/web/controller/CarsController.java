@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -63,8 +64,8 @@ public class CarsController {
 		service.save(car);
 	}
 	
-	@DeleteMapping
-	public void delete(Integer cid,HttpServletRequest req) {
+	@DeleteMapping("{cid}")
+	public void delete(@PathVariable Integer cid,HttpServletRequest req) {
 		//首先删除车辆照片
 		Cars c = service.findOne(cid);
 		String photo = c.getCphoto();
@@ -98,7 +99,7 @@ public class CarsController {
 	
 	//按条件查询   按车牌号码查询、按车辆类型查询、按车辆载重查询、按车辆使用状态查询、按车辆所属车队查询
 	
-	public Cars find(CarsExample ce) {
+	public List<Cars> find(CarsExample ce) {
 		System.out.println("CarsController.find()");
 		return service.find(ce);
 	}

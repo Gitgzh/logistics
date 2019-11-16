@@ -39,7 +39,7 @@ public class PermissionsController {
 		service.save(permissions);
 	}
 	
-	@DeleteMapping
+	@DeleteMapping("{pid}")
 	@ResponseBody
 	public void delete(Integer pid) {
 		service.delete(pid);

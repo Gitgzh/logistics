@@ -75,7 +75,7 @@ public class UsersController {
 		service.save(user);
 	}
 	
-	@DeleteMapping
+	@DeleteMapping("{uid}")
 	@ResponseBody
 	public void delete(@RequestBody Integer uid) {
 		

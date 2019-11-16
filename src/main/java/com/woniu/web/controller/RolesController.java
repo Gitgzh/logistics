@@ -39,7 +39,7 @@ public class RolesController {
 		service.save(roles);
 	}
 	
-	@DeleteMapping
+	@DeleteMapping("{rid}")
 	@ResponseBody
 	public void delete(Integer rid) {
 		service.delete(rid);

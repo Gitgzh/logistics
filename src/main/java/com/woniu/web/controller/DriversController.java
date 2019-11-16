@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,6 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.woniu.pojo.Drivers;
+import com.woniu.pojo.DriversExample;
 import com.woniu.service.impl.DriversServiceImpl;
 
 
@@ -72,10 +74,11 @@ public class DriversController {
 		service.save(drivers);
 	}
 	
-	@DeleteMapping
-	public void delete(Integer did,HttpServletRequest req) {
+	@DeleteMapping("{did}")
+	public void delete(@PathVariable Integer did,HttpServletRequest req) {
 		//首先删除车辆照片
 		Drivers d = service.findOne(did);
+		System.out.println(did);
 		String photo = d.getDphoto();
 		//文件夹和添加名称相同
 		String path = req.getServletContext().getRealPath("/images");
@@ -104,6 +107,9 @@ public class DriversController {
 		
 	}
 	
-	
+	//条件查询
+	public List<Drivers> find(DriversExample de) {
+		return service.find(de);
+	}
 	
 }

@@ -240,4 +240,36 @@
       dstatus = #{dstatus,jdbcType=INTEGER}
     where did = #{did,jdbcType=INTEGER}
   </update>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <select id="find" parameterType="com.woniu.pojo.DriversExample" resultType="java.util.Map">
+  	select * from drivers
+  	<where>
+  		<if test="dname!=null">
+  			and dname like #{dname%}
+  		</if>
+  		<if test="dface!=null">
+  			and dface=#{dface}
+  		</if>
+  		<if test="fid!=null">
+  			and fid=#{fid}
+  		</if>
+  		<if test="dstatus!=null">
+  			and dstatus=#{dstatus}
+  		</if>
+  	</where>
+  </select>
+  
+  
+  
+  
+  
 </mapper>
