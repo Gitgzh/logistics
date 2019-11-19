@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ import com.woniu.service.impl.CarsServiceImpl;
 @RequestMapping("cars")
 public class CarsController {
 
-	@Autowired
+	@Resource
 	private CarsServiceImpl service;
 	
 	//多个图片

@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,7 @@ import com.woniu.service.impl.CostServiceImpl;
 @RequestMapping("cost")
 public class CostController {
 
-	@Autowired
+	@Resource
 	private CostServiceImpl service;
 	
 	@PostMapping
