@@ -31,7 +31,7 @@ public class CarsController {
 
 	@Resource
 	private CarsServiceImpl service;
-	
+	 
 	//多个图片
 	@PostMapping
 	public void save(Cars car,@RequestParam(required=false) CommonsMultipartFile[] photo,HttpServletRequest req) { 
